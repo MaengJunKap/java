@@ -26,7 +26,8 @@ public class StringAPI {
 
 	public void testSubString() {
 		String eclispePath = "C:/Users/owner/Desktop/eclipse/eclipse.exe";
-		System.out.println(eclispePath.lastIndexOf("/")); // 마지막 어디에 있는지 안나올때까지 탐색															
+		System.out.println(eclispePath.lastIndexOf("/")); // 마지막 어디에 있는지 안나올때까지
+															// 탐색
 		System.out.println(eclispePath.substring(30)); // 어디부터 자를것인가
 		System.out.println(eclispePath.substring(eclispePath.lastIndexOf("/") + 1));
 		System.out.println(eclispePath.substring(31, 38));
@@ -79,9 +80,18 @@ public class StringAPI {
 
 	}
 
+	public void testSplit() {
+		String usersName = "홍,길,동";
+		String[] eachNames = usersName.split(",");
+
+		for (String name : eachNames) {
+			System.out.println(name);
+		}
+	}
+
 	public static void main(String[] args) {
 		StringAPI stringAPI = new StringAPI();
-		stringAPI.tsetReplace();
+		stringAPI.testSplit();
 	}
 
 }
