@@ -1,4 +1,9 @@
-
+/**
+ * 데이터베이스의 값들을 바인딩 함..
+ * 
+ * @author owner
+ *
+ */
 public class DoctorModel {
 
 	private String computer;

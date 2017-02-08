@@ -1,5 +1,10 @@
 
 public class Doctor {
+	
+	public static final String  SHOULDER = "shoulder"; //ê°ì²´ì— ì ê·¼í•˜ê¸°ìœ„í•´ ìƒìˆ˜ì•ì— static
+	public static final String ARMS = "arms";
+
+	private int state;
 
 	private Patient patient;
 
@@ -7,31 +12,66 @@ public class Doctor {
 
 	public Doctor(DoctorModel doctorModel) {
 		this.doctorModel = doctorModel;
+		state = 1;
 	}
 
 	public void requestTreatment(Patient patient) {
 		this.patient = patient;
-		 inquery();
-		 treatment();
-		 prescription();
+
+		/*
+		 * switch(state){ 
+		 * case 1: inquery(); state++; 
+		 * case 2: treatment();
+		 * state++; 
+		 * break; 
+		 * case 3: prescription(); 
+		 * }
+		 * 
+		 */
+
+		inquery();
+		treatment();
+		prescription();
 	}
 
-	// È¯ÀÚ º´Àû Á¶È¸
+	// í™˜ì ë³‘ì ì¡°íšŒ
 	private void inquery() {
-		System.out.println(patient.talkMyName() + "´Ô,º´ÀûÀ» Á¶È¸ ÇØº¸°Ú½À´Ï´Ù.");
-		System.out.println(doctorModel.getComputer() + "¿¡¼­ È¯ÀÚÀÇ ÀÌ¸§À» Á¶È¸ÇÕ´Ï´Ù.");
+		System.out.println(patient.talkMyName() + "ë‹˜ ì•„í”„ì‹œë„¤ìš”");
+		System.out.println(doctorModel.getComputer() + "ë¡œ ë³‘ì ì¡°íšŒ");
 	}
 
-	// È¯ÀÚ Áø·á
+	// í™˜ìì§„ë£Œ
 	private void treatment() {
-		System.out.println(patient.talkTroubleType() + "..±×·¯½Ã±º¿ä ");
-		System.out.println("ÀÇ»ç°¡" + doctorModel.getMedicalAppliance() + "·Î ÀÇ»ç°¡ È¯ÀÚ¸¦ Áø·áÇÕ´Ï´Ù.");
+		System.out.println(patient.talkTroubleType() + " ì•„í”„ì‹œêµ°ìš”");
+		System.out.println("ì˜ì‚¬ê°€" + doctorModel.getMedicalAppliance() + "ë¡œ í™˜ìë¥¼ ì§„ì°°");
 	}
 
-	// Ã³¹æÀü ÀÛ¼º
+	// ì²˜ë°©ì „ ì‘ì„±
 	private void prescription() {
-		System.out.println(patient.talkMyAge() + "»ì ÀÌ½Ã±º¿ä. ³ªÀÌ¿¡ ¸Â°Ô Ã³¹æÀüÀ» ½á µå¸®°Ú½À´Ï´Ù.");
-		System.out.println("ÀÇ»ç°¡" + doctorModel.getComputer() + "·Î È¯ÀÚÀÇ Ã³¹æÀüÀ» ÀÛ¼ºÇÕ´Ï´Ù.");
+		if (patient.talkMyAge() >= 20) {
+
+			System.out.println(patient.talkMyAge() + "ì‚´ì´ì‹œêµ°ìš”.ê°•í•œì•½ì²˜ë°©");
+		} else {
+			System.out.println(patient.talkMyAge() + "ì‚´ì´ì‹œêµ°ìš”.ì•½í•œì•½");
+		}
+		System.out.println("ì˜ì‚¬ê°€" + doctorModel.getComputer() + "ì²˜ë°©");
+			// ëŒ€ì†Œë¬¸ìë¥¼ êµ¬ë¶„í•˜ì§€ ì•ŠëŠ” equalsIgnoreCase
+		if (patient.talkTroubleType().equalsIgnoreCase(SHOULDER)) {
+			System.out.println("ìš°ìš¸ì¦ ì•½ì„ ë“œë¦´ê»˜ìš”");
+		} else if (patient.talkTroubleType().toLowerCase().equals(ARMS.toLowerCase())) {
+			//patient.toUpperCase().equals("arms".toUpperCase);
+			System.out.println("íŒŒìŠ¤ë¥¼ ë“œë¦´ê»˜ìš”!");
+		} else {
+			System.out.println("ë°©ë²•ì´ ì—†ìŠµë‹ˆë‹¤.");
+		}
+		//System.out.println(patient.talkTroubleType().indexOf("HJK")); //ì—†ìœ¼ë©´ ë¬´ì¡°ê±´ -1 0ì´ë¼í•´ë„ ë°ì´í„°ê°€ ìˆë‹¤ê³  íŒë‹¨
+		
+		if(patient.talkTroubleType().indexOf(ARMS)>-1){ //ëª‡ë²ˆì§¸ ì–´ë– í•œ ê¸€ìê°€ ìˆëŠ”ì§€ í™•ì¸ ê¸€ìê°€ ìˆëƒ ì—†ëƒ í™•ì¸ë•Œ ì‚¬ìš© ,ê¸€ìë¥¼ ìë¥¼ë•Œë„ ì‚¬ìš©
+			System.out.println("íŒŒìŠ¤ë¥¼ ë“œë¦´ê»˜ìš”!");
+		}
+		else if(patient.talkTroubleType().indexOf(SHOULDER)>-1){
+			System.out.println("íŒŒìŠ¤ 3ì¥ì„ ë“œë¦´ê»˜ìš”");
+		}
 	}
 
 }

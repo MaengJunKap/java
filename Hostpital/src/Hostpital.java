@@ -2,21 +2,32 @@
 public class Hostpital {
 
 	public static void main(String[] args) {
-		//°¡·ÎÀÖ´Â°Ç ¸Þ¼Òµå »ý¼ºÀÚ °¡·Î¾È¿¡¼­ °ªÀ» º¯°æ°¡´É
-		Doctor ±è»çºÎ = new Doctor("±è»çºÎ","¾ÆÀÌÆÐµå","Ã¼¿Â°è"); //»ý¼ºÀÚ¿¡ ÀÖ´Â Å¸ÀÔ¿¡ ¸Â°Ô °ªÀ» ³Ö´Â´Ù. 
-	   //±è»çºÎ.setComputer("MRI");
-		±è»çºÎ.inquery();
-		±è»çºÎ.treatment();
 		
-		String computer = ±è»çºÎ.getComputer();
-		String meString = ±è»çºÎ.getMedicalAppliance();
-		System.out.println("±è»çºÎÀÇ ÄÄÇ»ÅÍ´Â" + computer + "ÀÔ´Ï´Ù.");
-		System.out.println("±è»çºÎÀÇ Áø·áµµ±¸´Â " + meString + "ÀÔ´Ï´Ù.");
+		DoctorModel ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  = new DoctorModel("ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½1","ï¿½ï¿½ï¿½Ã°ï¿½1");
+		DoctorModel ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  = new DoctorModel("ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½2","ï¿½ï¿½ï¿½Ã°ï¿½2");
+		DoctorModel ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  = new DoctorModel("ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½3","ï¿½ï¿½ï¿½Ã°ï¿½3");
+		
 
-		Doctor ºÀ´ÞÈñ = new Doctor();
-		ºÀ´ÞÈñ.treatment();
-		ºÀ´ÞÈñ.prescription();
+		
+		Doctor[] doctors = new Doctor[3];
+		doctors[0] = new Doctor(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½);
+		doctors[1] = new Doctor(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½);
+		doctors[2] = new Doctor(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½);
+		
 
+		
+		for(int i =0; i< doctors.length; i++){
+			doctors[i].inquery();
+			doctors[i].treatment();
+			doctors[i].prescription();
+		}
+		System.out.println("==================================");
+		for(Doctor ï¿½Ç»ï¿½: doctors){
+			ï¿½Ç»ï¿½.inquery();
+			ï¿½Ç»ï¿½.treatment();
+			ï¿½Ç»ï¿½.prescription();
+		}
+		
 	}
 
 }

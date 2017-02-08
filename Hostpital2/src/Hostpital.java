@@ -3,13 +3,14 @@ public class Hostpital {
 
 	public static void main(String[] args) {
 
-		PatientModel patientModel = new PatientModel("¾Æ¸ğ°³",38, "¸¶À½ÀÌ ¾ÆÆÄ¿ä");
-		Patient ¾Æ¸ğ°³ = new Patient(patientModel);
+		PatientModel patientModel = new PatientModel("ì•„ëª¨ê°œ",10, "ê°‘ìê¸°"+Doctor.SHOULDER+"ê°€ ì•„í”•ë‹ˆë‹¤.");
+		Patient amoga = new Patient(patientModel);
 		
-		DoctorModel ±è»çºÎÀÇÀåºñ = new DoctorModel("¾ÆÀÌÆĞµå1", "³»½Ã°æ1");
-		Doctor ±è»çºÎ = new Doctor(±è»çºÎÀÇÀåºñ);
-		±è»çºÎ.requestTreatment(¾Æ¸ğ°³);
-		//±è»çºÎ.inquery();
+		DoctorModel kimsbujang = new DoctorModel("ì•„ì´íŒ¨ë“œ", "ë‚´ì‹œê²½");
+		Doctor mjk = new Doctor(kimsbujang);
+		mjk.requestTreatment(amoga);
+		
+		
 		
 
 	}
